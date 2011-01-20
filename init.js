@@ -1,5 +1,3 @@
-var badgeCount = 0;
-
 function checkServerStatus() 
 {
     var request = new XMLHttpRequest();
@@ -11,7 +9,6 @@ function checkServerStatus()
     }
     request.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 1984 00:00:00 GMT");
     request.send();
-    badgeCount++;
 }
 
 
