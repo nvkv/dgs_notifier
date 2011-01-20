@@ -18,7 +18,6 @@ function checkServerStatus()
 
 function countGames(rssItems) 
 {
-    console.log(rssItems.item(0).childNodes[1]);
     if (rssItems.length == 1 && rssItems.item(0).childNodes[1].firstChild.nodeValue == 'Empty lists') {
 	chrome.browserAction.setBadgeText({'text': ''});
     } else {
