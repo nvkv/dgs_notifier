@@ -11,6 +11,7 @@ function checkServerStatus()
 	    countGames(request.responseXML.getElementsByTagName('item'));
 	}
     }
+    request.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 1984 00:00:00 GMT");
     request.send();
     badgeCount++;
 }
