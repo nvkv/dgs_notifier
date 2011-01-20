@@ -1,5 +1,5 @@
 var badgeCount = 0;
-setInterval("checkServerStatus()", 5000);
+setInterval(checkServerStatus, 5000);
 
 
 function checkServerStatus() 
