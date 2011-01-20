@@ -1,6 +1,4 @@
 var badgeCount = 0;
-setInterval(checkServerStatus, 5000);
-
 
 function checkServerStatus() 
 {
@@ -25,3 +23,5 @@ function countGames(rssItems)
 	chrome.browserAction.setBadgeText({'text': rssItems.length.toString()});
     }
 }
+
+setInterval(checkServerStatus, 5000);
