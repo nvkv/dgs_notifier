@@ -21,4 +21,9 @@ function countGames(rssItems)
     }
 }
 
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+    chrome.tabs.create({'url': 'http://www.dragongoserver.net/status.php'}); 
+});
+
 setInterval(checkServerStatus, 5000);
