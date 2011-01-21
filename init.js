@@ -1,7 +1,9 @@
-function checkServerStatus() 
-{
+var statusUrl = 'http://www.dragongoserver.net/status.php';
+var rssUrl    = 'http://www.dragongoserver.net/rss/status.php';
+
+function checkServerStatus() {
     var request = new XMLHttpRequest();
-    request.open("GET", "http://www.dragongoserver.net/rss/status.php", true);
+    request.open("GET", rssUrl, true);
     request.onreadystatechange = function() {
 	if (request.readyState == 4) {
 	    countGames(request.responseXML.getElementsByTagName('item'));
@@ -12,8 +14,7 @@ function checkServerStatus()
 }
 
 
-function countGames(rssItems) 
-{
+function countGames(rssItems) {
     if (rssItems.length == 1 && rssItems.item(0).childNodes[1].firstChild.nodeValue == 'Empty lists') {
 	chrome.browserAction.setBadgeText({'text': ''});
     } else {
@@ -22,8 +23,32 @@ function countGames(rssItems)
 }
 
 
+function findOrOpenDGSStatusTab() {
+    chrome.tabs.getAllInWindow(null, function (tabs) {
+	var dgsTab = null;
+	for (var i = 0; i < tabs.length; i++) {
+	    var tab = tabs[i];
+	    if (tab.url == statusUrl) {
+		dgsTab = tab;
+	    }
+	}
+	openDGSTab(dgsTab);
+    });
+}
+
+
+function openDGSTab(dgsTab) {
+    if (dgsTab == null) {
+	chrome.tabs.create({'url': statusUrl}); 
+    } else {
+	chrome.tabs.update(dgsTab.id, {'selected' : true, 'url' : statusUrl}, function(){})
+    }
+}
+
+
 chrome.browserAction.onClicked.addListener(function(tab) {
-    chrome.tabs.create({'url': 'http://www.dragongoserver.net/status.php'}); 
+    findOrOpenDGSStatusTab();
 });
+
 
 setInterval(checkServerStatus, 5000);

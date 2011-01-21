@@ -8,6 +8,7 @@
 	"default_icon": "icon.png"
     },
     "permissions": [
-	"http://www.dragongoserver.net/"
+	"http://www.dragongoserver.net/",
+	"tabs"
     ]
 }
