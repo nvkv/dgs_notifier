@@ -10,5 +10,8 @@
     "permissions": [
 	"http://www.dragongoserver.net/",
 	"tabs"
-    ]
+    ],
+    "icons": { 
+	"128": "128.png" 
+    }
 }
