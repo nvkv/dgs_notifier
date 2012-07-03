@@ -1,17 +1,18 @@
 {
     "name": "Dragon Go Server notifier",
-    "version": "0.1",
-    "description": "Notifier for Dragon Go server",
-    "background_page": "background.html",
+    "version": "0.2",
+    "description": "Notifier for Dragon Go server",    
+    "background" : { "scripts" : ["init.js"] },
+    "manifest_version": 2,
 
     "browser_action": {
-	"default_icon": "icon.png"
-    },
-    "permissions": [
-	"http://www.dragongoserver.net/",
-	"tabs"
-    ],
-    "icons": { 
-	"128": "128.png" 
-    }
-}
+       "default_icon": "icon.png"
+       },
+       "permissions": [
+       "http://www.dragongoserver.net/",
+       "tabs"
+       ],
+       "icons": { 
+           "128": "128.png" 
+       }
+   }
