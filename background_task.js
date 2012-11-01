@@ -1,1 +1,7 @@
-setInterval(checkServerStatus, 60000);
+setInterval(
+  function() {
+    checkServerStatus(countGamesInQuickStatus)
+  }, 
+  6000
+);
+
