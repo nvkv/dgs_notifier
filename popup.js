@@ -21,7 +21,7 @@ function lineForGame(game)
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
 });
 
