@@ -1,5 +1,3 @@
-var currentGames = []
-
 String.prototype.supplant = function (o) {
     return this.replace(/{([^{}]*)}/g,
         function (a, b) {
@@ -25,17 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
 });
 
+window.onload = function () { 
+  DGSState.restore()
 
-checkServerStatus(function(text) {
-  currentGames = parseStatus(text);
   var listString = ""
-  for (var i = 0; i < currentGames.length; i++) {
-    listString += lineForGame(currentGames[i])
+  for (var i = 0; i < DGSState.currentGames.length; i++) {
+    listString += lineForGame(DGSState.currentGames[i])
   }
   document.getElementById('games_list').innerHTML = listString
-  if (currentGames.length == 0) {
+  if (DGSState.currentGames.length == 0) {
     document.getElementById('title').innerHTML = "Take a walk take a rest"
   }
-})
+}
 
 
