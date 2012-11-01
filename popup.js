@@ -33,6 +33,9 @@ checkServerStatus(function(text) {
     listString += lineForGame(currentGames[i])
   }
   document.getElementById('games_list').innerHTML = listString
+  if (currentGames.length == 0) {
+    document.getElementById('title').innerHTML = "Take a walk take a rest"
+  }
 })
 
 
