@@ -66,7 +66,7 @@ function parseStatus(statusString)
     if (pieces.length > 4) {
       gameObject.id = cleanup(pieces[1])
       gameObject.opponent = cleanup(pieces[2])
-      gameObject.color = cleanup(pieces[3])
+      gameObject.color = cleanup(pieces[3]) == "W" ? "○" : "●";
       gameObject.timestamp = cleanup(pieces[4])
       gameObject.time_rem = cleanup(pieces[5])
       games.push(gameObject)    

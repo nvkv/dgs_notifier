@@ -12,12 +12,12 @@ String.prototype.supplant = function (o) {
 
 function lineForGame(game) 
 {
-  return ("<li>" + 
+  return ("<div>" + 
          "<a target='blank'" +
          "href='http://www.dragongoserver.net/game.php?gid={id}'>" +
-         "{color}: {opponent} ({time_rem})" +
+         "{color} {opponent}" +
          "</a>" +
-         "</li>").supplant(game)
+         "</div>").supplant(game)
 }
 
 

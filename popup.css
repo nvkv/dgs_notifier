@@ -1,0 +1,36 @@
+body {
+  padding-left: 5px;
+  width: 200px;
+  font-family: sans-serif;
+}
+
+
+A:link {
+  text-decoration: none;
+  color:grey;
+}
+
+
+A:visited {
+  text-decoration: none;
+  color:grey;
+}
+
+
+A:active {
+  text-decoration: none;
+  color:grey;
+}
+
+
+A:hover {
+  color:red;
+}
+
+
+#title {
+  color:grey;
+  font-weight:bold;
+}
+
+
