@@ -1,23 +1,73 @@
 <!DOCTYPE html>
 <head>
+  <script src="state.js"></script>
+  <script src="checker.js"></script>
+  <script src="find_tab.js"></script>
   <script src="background_task.js"></script>
   <script src="options.js"></script>
+  <style>
+    body { 
+      width: 100%; 
+      height: 100%; 
+      margin: 0px; 
+      padding: 0px; 
+      color:grey;
+      font-family: sans-serif;
+    }
+    #options_pane {
+      padding-top: 20%;
+      margin: auto;
+      text-align: center;
+      background-color: white;
+      width: 300px !important;
+      height: 300px !important;
+    }
+
+    A {
+      font-family: monospace;
+      font-size: 20px;
+    }
+
+    A:link {
+      text-decoration: none;
+      color:grey;
+    }
+
+    A:visited {
+      text-decoration: none;
+      color:grey;
+    }
+
+    A:active {
+      text-decoration: none;
+      color:grey;
+    }
+
+    A:hover {
+      color:red;
+    }
+  </style>
 </head>
 
 <body>
-  <div>
-    I don't like new features bring me back! 
-    <input id="hardcore_mode" type="checkbox" name="hardcore" value="true"  />
+  <div id="options_pane">
+    <b>DGS Checker options</b><br/><br/>
+    <div id="check_freq">
+      <span>Check DGS every:</span>
+      <select id="check_frequency"> 
+        <option value="300000">5 minutes</option>
+        <option value="600000">10 minutes</option>
+        <option value="1800000">30 minutes</option>  
+      </select>
+    </div>
+    <br/>
+    <div>
+      I don't like all this shiny new features: 
+      <input id="hardcore_mode" type="checkbox" name="hardcore" value="true"  />
+    </div><span style="font-size: 10px">(open DGS status on icon click)</span>
+    <br/>
+    <br/>
+    <a href="#" id="save_options">Save</a>
   </div>
-  <div id="check_freq">
-    <p>Check DGS every:</p>
-    <select id="check_frequency"> 
-      <option value="300000">5 minutes</option>
-      <option value="600000">10 minutes</option>
-      <option value="1800000">30 minutes</option>  
-    </select>
-  </div>
-
-  <span id="save_options">Save</span>
 
 </body>

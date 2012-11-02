@@ -2,7 +2,14 @@
   "name": "Dragon Go Server notifier",
   "version": "0.2",
   "description": "Notifier for Dragon Go server",    
-  "background" : { "scripts" : ["state.js", "checker.js", "background_task.js"] },
+  "background" : { 
+    "scripts" : [
+      "find_tab.js", 
+      "state.js", 
+      "checker.js", 
+      "background_task.js"
+    ] 
+  },
   "manifest_version": 2,
   "options_page": "options.html",
 

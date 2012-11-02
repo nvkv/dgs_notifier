@@ -1,16 +1,3 @@
-var DGSOptions = {}
-
-DGSOptions.restore = function() {
-  DGSOptions.options = JSON.parse(localStorage.getItem('dgs_options'))
-  if (DGSOptions.options == null) {
-    DGSOptions.options = {}
-  }
-}
-
-DGSOptions.save = function() {
-  localStorage.setItem('dgs_options', JSON.stringify(DGSOptions.options))
-}
-
 
 DGSOptions.restore()
 
@@ -18,7 +5,10 @@ function save() {
   DGSOptions.options.frequency = Number(document.getElementById('check_frequency').value)
   DGSOptions.options.hardcoreMode = document.getElementById('hardcore_mode').checked 
   DGSOptions.save()
+  DGSOptions.init()
   startChecking()
+
+  window.close()
 }
 
 document.addEventListener('DOMContentLoaded', function() {
