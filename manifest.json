@@ -4,6 +4,7 @@
   "description": "Notifier for Dragon Go server",    
   "background" : { "scripts" : ["state.js", "checker.js", "background_task.js"] },
   "manifest_version": 2,
+  "options_page": "options.html",
 
   "browser_action": {
     "default_icon": "icon.png",
