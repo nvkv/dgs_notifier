@@ -15,6 +15,7 @@ function findOrOpenDGSStatusTab()
 
 function openDGSTab(dgsTab) 
 {
+ chrome.browserAction.setBadgeText({'text': '?'});
   if (dgsTab == null) {
    chrome.tabs.create({'url': statusUrl});
   } 

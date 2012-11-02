@@ -21,9 +21,7 @@ function lineForGame(game)
 
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
-});
 
-window.onload = function () { 
   DGSState.restore()
 
   var listString = ""
@@ -31,9 +29,18 @@ window.onload = function () {
     listString += lineForGame(DGSState.currentGames[i])
   }
   document.getElementById('games_list').innerHTML = listString
+
+  var links = document.querySelectorAll('a')
+  for (var i = 0; i < links.length; i++ ) {
+    var link = links[i] 
+    link.addEventListener('click', function() {
+      chrome.browserAction.setBadgeText({'text': '?'});
+    });
+  }
+
   if (DGSState.currentGames.length == 0) {
     document.getElementById('title').innerHTML = "Take a walk take a rest"
   }
-}
+});
 
 

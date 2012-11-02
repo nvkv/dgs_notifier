@@ -1,3 +1,18 @@
+function refreshGames()
+{
+  checkServerStatus(function(text) {
+    DGSState.currentGames = parseStatus(text);
+    DGSState.save()
+    var count = DGSState.currentGames.length
+    if (count > 0) {
+      chrome.browserAction.setBadgeText({'text': count.toString()});
+    }
+    else {
+      chrome.browserAction.setBadgeText({'text': ''});
+    }
+  })
+}
+
 function startChecking() {
 
   if (localStorage["background_task_id"] != null) {
@@ -14,24 +29,9 @@ function startChecking() {
     freq = 300000;
   }
   
-  var intervalId = setInterval(
-    function() {
-      checkServerStatus(function(text) {
-        DGSState.currentGames = parseStatus(text);
-        DGSState.save()
-        var count = DGSState.currentGames.length
-        if (count > 0) {
-          chrome.browserAction.setBadgeText({'text': count.toString()});
-        }
-        else {
-          chrome.browserAction.setBadgeText({'text': ''});
-        }
-      })
-    },
-    freq
-  );  
-
+  var intervalId = setInterval(refreshGames, freq);  
   localStorage["background_task_id"] = intervalId;
+  refreshGames()
 }
 
 startChecking()
