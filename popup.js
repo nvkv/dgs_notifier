@@ -20,27 +20,30 @@ function lineForGame(game)
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
 
-  DGSState.restore()
+	document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
 
-  var listString = ""
-  for (var i = 0; i < DGSState.currentGames.length; i++) {
-    listString += lineForGame(DGSState.currentGames[i])
-  }
-  document.getElementById('games_list').innerHTML = listString
+	DGSState.restore()
 
-  var links = document.querySelectorAll('a')
-  for (var i = 0; i < links.length; i++ ) {
-    var link = links[i] 
-    link.addEventListener('click', function() {
-      chrome.browserAction.setBadgeText({'text': '?'});
-    });
-  }
+	var listString = ""
+	if (DGSState.currentGames != null) {
+		for (var i = 0; i < DGSState.currentGames.length; i++) {
+   			listString += lineForGame(DGSState.currentGames[i])
+  	  	}
+	}
+	document.getElementById('games_list').innerHTML = listString
 
-  if (DGSState.currentGames.length == 0) {
-    document.getElementById('title').innerHTML = "Take a walk take a rest"
-  }
+	var links = document.querySelectorAll('a')
+	for (var i = 0; i < links.length; i++ ) {
+    	var link = links[i] 
+    	link.addEventListener('click', function() {
+      		chrome.browserAction.setBadgeText({'text': '?'});
+    	});
+  	}
+
+  	if (DGSState.currentGames && DGSState.currentGames.length == 0) {
+    	document.getElementById('title').innerHTML = "Take a walk take a rest"
+  	}
 });
 
 

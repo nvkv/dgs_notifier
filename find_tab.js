@@ -15,12 +15,12 @@ function findOrOpenDGSStatusTab()
 
 function openDGSTab(dgsTab) 
 {
- chrome.browserAction.setBadgeText({'text': '?'});
-  if (dgsTab == null) {
-   chrome.tabs.create({'url': statusUrl});
-  } 
-  else {
-    chrome.tabs.update(dgsTab.id, {'selected' : true, 'url' : statusUrl}, function(){})
-  }
+	chrome.browserAction.setBadgeText({'text': '?'});
+  	if (dgsTab == null) {
+ 	  chrome.tabs.create({'url': statusUrl});
+ 	 } 
+ 	 else {
+  	  chrome.tabs.update(dgsTab.id, {'selected' : true, 'url' : statusUrl}, function(){})
+ 	 }
 }
 

@@ -54,11 +54,16 @@
     <b>DGS Checker options</b><br/><br/>
     <div id="check_freq">
       <span>Check DGS every:</span>
-      <select id="check_frequency"> 
+      <select id="check_frequency">
+        <option value="60000">1 minute (use with caution!)</option> 
         <option value="300000">5 minutes</option>
         <option value="600000">10 minutes</option>
         <option value="1800000">30 minutes</option>  
-      </select>
+      </select><br/>
+      <span style="font-size: 10px">
+        (Using intervals less than 5 minutes may cause DGS ban)
+      </span>
+
     </div>
     <br/>
     <div>
