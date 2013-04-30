@@ -10,6 +10,14 @@ A:link {
   color:grey;
 }
 
+span {
+	color:grey;
+}
+
+span:hover {
+	color:red;
+	cursor:pointer;
+}
 
 A:visited {
   text-decoration: none;

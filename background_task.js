@@ -2,16 +2,21 @@ function refreshGames()
 {
 	  checkServerStatus(function(text) {
 			DGSState.currentGames = parseStatus(text);
-	    	DGSState.save()
+			DGSState.save()
+
+			if (DGSState.currentGames == 'Error') {
+				chrome.browserAction.setBadgeText({'text': '!'})
+				return
+			}
 		    var count = 0
 		
-		    if (DGSState.currentGames)
+		    if (DGSState.currentGames) {
 				count = DGSState.currentGames.length
+			}
 		
 		    if (count > 0) {
 		      chrome.browserAction.setBadgeText({'text': count.toString()});
-		    }
-		    else {
+		    } else {
 		      chrome.browserAction.setBadgeText({'text': ''});
 		    }
 	  })

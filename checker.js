@@ -8,7 +8,7 @@ function checkServerStatus(callback)
 	request.onreadystatechange = function() {
 		if (request.readyState == 4) {
 			return callback(request.responseText)
-			}
+		}
 	}
 	request.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 1984 00:00:00 GMT");
 	request.send();
@@ -23,6 +23,10 @@ function parseStatus(statusString)
 
 	for (var i = 0; i < lines.length; i++) {
 		var line = lines[i]
+
+		if (line.indexOf("Error") != -1) {
+			return 'Error'
+		}
 
 		/* Ignoring Warnings and blank lines */
 		if (line.indexOf("[") == 0 || line == "") {

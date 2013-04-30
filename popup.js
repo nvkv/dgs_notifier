@@ -21,20 +21,24 @@ function lineForGame(game)
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab);
+	document.querySelector('#all_games').addEventListener('click', findOrOpenDGSStatusTab)
+	document.querySelector('#clear').addEventListener('click', clearStatus)
 
 	DGSState.restore()
 
 	var listString = ""
-	if (DGSState.currentGames != null) {
+	if (DGSState.currentGames == 'Error') {
+		document.getElementById('title').innerHTML = "<div stlyle='color:red'>You should really log in DGS first</div>"
+	} else if (DGSState.currentGames != null) {
 		for (var i = 0; i < DGSState.currentGames.length; i++) {
  			listString += lineForGame(DGSState.currentGames[i])
 		}
-	}
+	} 
+
 	document.getElementById('games_list').innerHTML = listString
 
 	var links = document.querySelectorAll('a')
-	for (var i = 0; i < links.length; i++ ) {
+	for (var i = 0; i < links.length; i++) {
 		var link = links[i] 
 		link.addEventListener('click', function() {
 				chrome.browserAction.setBadgeText({'text': '?'});

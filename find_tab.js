@@ -18,9 +18,16 @@ function openDGSTab(dgsTab)
 	chrome.browserAction.setBadgeText({'text': '?'});
 	if (dgsTab == null) {
  		chrome.tabs.create({'url': statusUrl});
- 	} 
- 	else {
+ 	} else {
 		chrome.tabs.update(dgsTab.id, {'selected' : true, 'url' : statusUrl}, function(){})
  	}
 }
 
+
+function clearStatus() 
+{
+	chrome.browserAction.setBadgeText({'text': ''});
+	DGSState.currentGames = null
+	DGSState.save()
+	self.close()
+}
